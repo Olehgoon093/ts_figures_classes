@@ -43,7 +43,7 @@ export class Circle implements Figure {
     public radius: number,
   ) {
     if (this.radius <= 0) {
-      throw new Error('bad radius');
+      throw new Error('Radius must be greater than 0');
     }
   }
 
@@ -71,12 +71,5 @@ export class Rectangle implements Figure {
 }
 
 export function getInfo(figure): string {
-  const goodOne =
-    figure instanceof Triangle
-      ? 'triangle'
-      : figure instanceof Circle
-        ? 'circle'
-        : 'rectangle';
-
-  return `A ${figure.color} ${goodOne} - ${figure.getArea()}`;
+  return `A ${figure.color} ${figure.shape} - ${figure.getArea()}`;
 }
